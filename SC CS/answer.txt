@@ -1,0 +1,10 @@
+Acme Corporation isn't just a few .py files. If you want to grow in your career here, you'll have to answer the following:
+
+What, in your opinion, is an important part of code reviews? That is, what is something you pay attention to when you review code, and that you appreciate when others do the same for your code?
+
+Comments, Docstrings, variable names and writing style
+
+
+We have an awful lot of computers here, and it gets pretty confusing with slightly different things running on all of them. How could containers help us improve this situation?
+
+A container helps us isolate each module so that our code can run according to its own dependencies irrelavant of the systems libraries and versions
