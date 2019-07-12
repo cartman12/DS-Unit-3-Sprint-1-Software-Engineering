@@ -19,21 +19,21 @@ class Product:
         """ Price by weight """
 
         if (self.price / self.weight) < 0.5:
-            print('Not stealable')
+            return 'Not stealable'
         elif 0.5 <= (self.price / self.weight) < 1 :
-            print('Kind stealable')
+            return 'Kind stealable'
         else:
-            print('Not so stealable')
+            return 'Not so stealable'
 
     def explode(self):
         """ Explodibility """
 
         if (self.flammability * self.weight) < 10:
-            print('...fizzle')
+            return '...fizzle'
         elif ((self.flammability * self.weight) >= 50) and ((self.flammability * self.weight) < 50):
-            print('...boom!')
+            return '...boom!'
         else:
-            print('...BABOOM!!')
+            return '...BABOOM!!'
 
 
 """ Subclass """
@@ -41,23 +41,23 @@ class Product:
 
 class BoxingGlove(Product):
     """ Boxing gloves specs """
-    def __init__(self, name, price=10,
+    def __init__(self, name,weight = 10, price=10,
                  flammability=0.5, identifier=random.randint(1000000, 10000000)):
         super().__init__(name, price,flammability,identifier)
-        self.weight = 10
+        self.weight = weight
     
     def explode(self):
         """ Override explode """
-        print("It's a boxing glove")
+        return "It's a boxing glove"
 
     def punch(self):
         """ punch """
 
         if self.weight < 5:
-            print("That tickles")
+            return "That tickles"
         
         elif 5 <= self.weight < 15:
-            print('Hey that hurts')
+            return 'Hey that hurts'
 
         else:
-            print('OUCH!')
+            return 'OUCH!'

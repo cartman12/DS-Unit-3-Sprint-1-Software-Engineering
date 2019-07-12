@@ -38,15 +38,12 @@ def inventory_report(products):
     return average
   averages=[]
   names = set(products[0])
+  len_prod = len(names)
   
   for i in range(1,len(products)):
     average = ave(products[i])
     averages.append(average)
-  print('ACME CORPORATION OFFICIAL INVENTORY REPORT')
-  print('Unique product names:', len(names))
-  print('Average price:', averages[0])
-  print('Average weight:', averages[1])
-  print('Average flammability:', averages[2])
+  return 'ACME CORPORATION OFFICIAL INVENTORY REPORT', 'Unique product names:', len_prod, 'Average price:', averages, 'Average weight:', averages[1], 'Average flammability:', averages[2]
 
 
 if __name__ == '__main__':
