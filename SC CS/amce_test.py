@@ -13,14 +13,20 @@ class AcmeProductTests(unittest.TestCase):
         self.assertEqual(prod.explode(), '...BABOOM!!')
         self.assertTrue(prod.stealability() == 'Kind stealable')
 
+
 class AcmeReportTests(unittest.TestCase):
     """Making sure counts and names are right"""
     def test_default_num_products(self):
-      prod = generate_products()
-      self.assertCountEqual(prod.products[0], 30)
+        prod = generate_products()
+        self.assertCountEqual(len(prod), 16)
+
     def test_legal_names(self):
-      prod = generate_products()
-      self.assertIn(prod.names,adjectives.append(nouns))
+        prod = generate_products()
+        for p in prod:
+            adj, noun = p.name.split
+            self.assertIn(adj, adjectives)
+            self.assertIn(noun, nouns)
+
 
 if __name__ == '__main__':
-    unittest.main()
+      unittest.main()

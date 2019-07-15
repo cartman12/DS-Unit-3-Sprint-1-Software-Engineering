@@ -7,45 +7,37 @@ from acme import Product
 adjectives = ['Awesome', 'Shiny', 'Impressive', 'Portable', 'Improved']
 nouns = ['Anvil', 'Catapult', 'Disguise', 'Mousetrap', '???']
 
-def generate_products(num_products=30):
-  names = []
-  prices = []
-  flammabilities = []
-  weights = []
-  products = []
-  for i in range(num_products):
-    name = '{} {}'.format(random.sample(adjectives,1)[0], random.sample(nouns,1)[0])
-    names.append(name)
 
-    price = random.randint(5,101)
-    prices.append(price)
+def generate_products(num_products=31):
+    products = []
 
-    weight = random.randint(5,101)
-    weights.append(weight)
+    for i in range(num_products):
 
-    flammability = random.uniform(0, 2.5)
-    flammabilities.append(flammability)
-  products.append(names)
-  products.append(prices)
-  products.append(weights)
-  products.append(flammabilities)
-  return products
+        name = '{} {}'.format(random.sample(adjectives, 1)[0], random.sample(nouns, 1)[0])
+        price = random.randint(5, 101)
+        weight = random.randint(5, 101)
+        flammability = random.uniform(0, 2.5)
+        products.append(Product(name, price, weight, flammability))
+
+    return products
 
 
 def inventory_report(products):
-  def ave(lst):
-    average = sum(lst) / len(lst)
-    return average
-  averages=[]
-  names = set(products[0])
-  len_prod = len(names)
-  
-  for i in range(1,len(products)):
-    average = ave(products[i])
-    averages.append(average)
-  return 'ACME CORPORATION OFFICIAL INVENTORY REPORT', 'Unique product names:', len_prod, 'Average price:', averages, 'Average weight:', averages[1], 'Average flammability:', averages[2]
+    def ave(lst):
+        aver = sum(lst) / len(lst)
+        return aver
+
+    names = set([p.name for p in products])
+    len_prod = len(names)
+
+    average_price = ave([p.price for p in products])
+    average_weight = ave([p.weight for p in products])
+    average_flammability = ave([p.flammability for p in products])
+
+    return 'ACME CORPORATION OFFICIAL INVENTORY REPORT', 'Unique product names:', len_prod, 'Average price:', average_price, 'Average weight:', average_weight, 'Average flammability:', average_flammability
 
 
 if __name__ == '__main__':
     inventory_report(generate_products())
-  
+
+print(inventory_report(generate_products()))
