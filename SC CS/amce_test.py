@@ -18,12 +18,12 @@ class AcmeReportTests(unittest.TestCase):
     """Making sure counts and names are right"""
     def test_default_num_products(self):
         prod = generate_products()
-        self.assertCountEqual(len(prod), 16)
+        self.assertEqual(len(prod), 30)
 
     def test_legal_names(self):
         prod = generate_products()
         for p in prod:
-            adj, noun = p.name.split
+            adj, noun = p.name.split()
             self.assertIn(adj, adjectives)
             self.assertIn(noun, nouns)
 

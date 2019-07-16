@@ -8,7 +8,7 @@ adjectives = ['Awesome', 'Shiny', 'Impressive', 'Portable', 'Improved']
 nouns = ['Anvil', 'Catapult', 'Disguise', 'Mousetrap', '???']
 
 
-def generate_products(num_products=31):
+def generate_products(num_products=30):
     products = []
 
     for i in range(num_products):
